@@ -2,14 +2,14 @@
   "name": "hello-http",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "tests"
   },
   "scripts": {
     "test": "mocha tests",
-    "start": "npm test -- -w"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
