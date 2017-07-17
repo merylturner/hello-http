@@ -16,11 +16,21 @@ describe('/greeting', () => {
                 done();
             });
     });
+
     it('returns greeting with name', done => {
         request.get('/greeting/joe')
             .end((err, res) => {
                 if(err) done(err);
                 assert.equal(res.text,'hello joe');
+                done();
+            });
+    });
+
+    it('returns greeting and salutation', done => {
+        request.get('/greeting/joe?salutation=hola')
+            .end((err, res) => {
+                if(err) done(err);
+                assert.equal(res.text,'hola joe');
                 done();
             });
     });
