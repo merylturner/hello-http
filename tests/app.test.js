@@ -38,7 +38,6 @@ describe('/greeting', () => {
     it('returns 404 not found', done => {
         request.get('/foo')
             .end((err,res) => {
-                // if(err) done(err);
                 assert.equal(res.statusCode, 404);
                 assert.equal(res.text, 'CANNOT GET /foo');
                 done();
