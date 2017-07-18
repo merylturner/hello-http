@@ -7,7 +7,7 @@ const assert = chai.assert;
 
 const app = require('../lib/app');
 
-describe('/greeting', () => {
+xdescribe('/greeting', () => {
     const request = chai.request(app);
 
     it('returns greeting with no name', done => {
@@ -37,7 +37,7 @@ describe('/greeting', () => {
             });
     });
 
-    it('returns a random fact', done => {
+    it('facts are there', done => {
         request.get('/fact')
             .end((err, res) => {
                 if (err) done(err);
