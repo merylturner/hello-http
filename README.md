@@ -6,3 +6,4 @@
 * 'Hello' is the default greeting. 
 * You can also create your own greeting by using a query, for example: 'localhost:3000/greeting/user?salutation=yo' will return 'yo user'.
 * It will also return random facts about HTTP if the user goes to the route '/fact'
+* This API uses Mocha, Chai and Chai-Http
