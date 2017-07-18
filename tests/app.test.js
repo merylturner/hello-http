@@ -1,7 +1,9 @@
-const assert = require('assert');
 const chai = require('chai');
+const factObj = require('../lib/fact');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
+const assert = chai.assert;
+
 
 const app = require('../lib/app');
 
@@ -35,6 +37,24 @@ describe('/greeting', () => {
             });
     });
     
+    it('returns a random fact', done => {
+        request.get('/fact')
+            .end((err,res) => {
+                if(err) done(err);
+                assert.equal(res.statusCode, 200);
+                done();
+            });
+    });
+    
+    it('returns a random fact', done => {
+        request.get('/fact')
+            .end((err,res) => {
+                if(err) done(err);
+                assert.include(factObj.arrayOfFacts, res.text);
+                done();
+            });
+    });
+
     it('returns 404 not found', done => {
         request.get('/foo')
             .end((err,res) => {
@@ -43,4 +63,5 @@ describe('/greeting', () => {
                 done();
             });
     });
+    
 });
