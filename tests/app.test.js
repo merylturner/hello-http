@@ -7,7 +7,7 @@ const assert = chai.assert;
 
 const app = require('../lib/app');
 
-xdescribe('/greeting', () => {
+describe('/greeting', () => {
     const request = chai.request(app);
 
     it('returns greeting with no name', done => {

@@ -5,10 +5,10 @@ const assert = chai.assert;
 const fsExtra = require('fs-extra');
 const path = require('path');
 
-// const log = require('../lib/log');
+
 const app = require('../lib/app');
 
-describe('/logs', () => {
+describe('post files to /logs', () => {
     const request = chai.request(app);
 
     before(() => {
@@ -19,14 +19,26 @@ describe('/logs', () => {
     });
 
     it('posts file to logs', done => {
-        const dataObj = { name: 'meryl', email: 'meryl@meryl.com'};
+        const dataObj = { name: 'meryl', email: 'meryl@meryl.com' };
         request.post('/logs')
-            // .setHeader('Content-Type', 'application/json')
             .send(dataObj)
-            .end((err,res) => {
+            .end((err, res) => {
                 if (err) done(err);
                 assert.include(res.text, 'timestamp');
                 done();
             });
     });
 });
+
+// describe('gets files from /log', () => {
+//     const request = chai.request(app);
+//     const dataObj2 = { name: 'jane', email: 'jane@jane.com' };
+    
+//     request.post('/logs')
+//         .send(dataObj2)
+//         .end((err, res) => {
+//             if (err) done(err)
+//         });
+//     it('GET /logs', () => {
+//     });
+// });
