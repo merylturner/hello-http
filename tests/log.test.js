@@ -16,6 +16,7 @@ describe('/logs', () => {
             .end((err,res) => {
                 if (err) done(err);
                 assert.equal(res.text,'hey');
+                //response should be {timeStampObj}
                 done();
             });
     });
