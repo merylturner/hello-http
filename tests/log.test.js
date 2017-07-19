@@ -29,16 +29,3 @@ describe('post files to /logs', () => {
             });
     });
 });
-
-// describe('gets files from /log', () => {
-//     const request = chai.request(app);
-//     const dataObj2 = { name: 'jane', email: 'jane@jane.com' };
-    
-//     request.post('/logs')
-//         .send(dataObj2)
-//         .end((err, res) => {
-//             if (err) done(err)
-//         });
-//     it('GET /logs', () => {
-//     });
-// });
