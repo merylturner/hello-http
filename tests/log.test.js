@@ -30,6 +30,9 @@ describe('post files to /logs', () => {
     });
 });
 
+//want to check the length of logs? assert.equal(array.length, 1)
+//test content of GET for single log after POST
+
 // describe('gets files from /log', () => {
 //     const request = chai.request(app);
 //     // const dataObj2 = { name: 'jane', email: 'jane@jane.com' };
