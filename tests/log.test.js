@@ -5,10 +5,11 @@ const assert = chai.assert;
 const fsExtra = require('fs-extra');
 const path = require('path');
 
-const log = require('../lib/log');
+// const log = require('../lib/log');
+const app = require('../lib/app');
 
 describe('/logs', () => {
-    const request = chai.request(log);
+    const request = chai.request(app);
 
     before(() => {
         fsExtra.emptyDir(path.join(__dirname, '../logs'), err => {
