@@ -19,12 +19,12 @@ describe('post files to /logs', () => {
     });
 
     it('posts file to logs', done => {
-        const dataObj = { name: 'meryl', email: 'meryl@meryl.com' };
+        const data = 'hey';
         request.post('/logs')
-            .send(dataObj)
+            .send(data)
             .end((err, res) => {
                 if (err) done(err);
-                assert.include(res.text, 'timestamp');
+                assert.ok(res.body);
                 done();
             });
     });

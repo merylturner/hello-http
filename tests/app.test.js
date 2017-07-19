@@ -50,6 +50,7 @@ describe('/greeting', () => {
         request.get('/fact')
             .end((err, res) => {
                 if (err) done(err);
+                // console.log('res.text is',res.text);
                 assert.include(factObj.arrayOfFacts, res.text);
                 done();
             });
