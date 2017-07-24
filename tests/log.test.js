@@ -8,7 +8,7 @@ const path = require('path');
 
 const app = require('../lib/app');
 
-describe('post files to /logs', () => {
+describe('/logs', () => {
     const request = chai.request(app);
 
     before(() => {
@@ -19,36 +19,25 @@ describe('post files to /logs', () => {
     });
 
     it('posts file to logs', done => {
-        const data = 'hey';
+        const data = { name: 'meryl', email: 'meryl@meryl.com'};
         request.post('/logs')
             .send(data)
             .end((err, res) => {
                 if (err) done(err);
                 assert.ok(res.body);
+                let responseObj = JSON.parse(res.text);
+                assert.equal(responseObj.hasOwnProperty('timestamp'), true);
+                done();
+            });
+    });
+    
+    it('GET /logs', done => {
+        request.get('/logs')
+            .end((err, res) => {
+                if (err) done(err);
+                let logArray = JSON.parse(res.text);
+                assert.equal(logArray.length, 1);
                 done();
             });
     });
 });
-
-//want to check the length of logs? assert.equal(array.length, 1)
-//test content of GET for single log after POST
-
-// describe('gets files from /log', () => {
-//     const request = chai.request(app);
-//     // const dataObj2 = { name: 'jane', email: 'jane@jane.com' };
-
-//     // request.post('/logs')
-//     //     .send(dataObj2)
-//     //     .end((err, res) => {
-//     //         if (err) done(err);
-//     //     });
-//     it('GET /logs', done => {
-//         request.get('/logs')
-//             .end((err, res) => {
-//                 // console.log('res.text is', res.text);
-//                 if (err) done(err);
-//                 assert.equal(1+1, 3);
-//                 done();
-//             });
-//     });
-// });
