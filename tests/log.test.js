@@ -40,7 +40,7 @@ describe('/logs', () => {
                 let logArray = JSON.parse(res.text);
                 assert.equal(logArray.length, 1);
                 done();
-            });
+            }); 
     });
 
     it('GET /logs by id', done => {
